@@ -3,9 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Visualization</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
 </head>
 <body>
-    
+    <header>
+        <div class="headerimg"><img src="Images/redlogo.webp" alt="logo"></div>
+        <div class="headertext"><p>Context</p></div>
+    </header>
+
+
+        <section class="bigsection">
+            <h1>Data Visualization & Machine Learning Analysis<br>Fake Job Prediction</h1>
+        </section>
+
+    <div class="container">
+        <section class="context">
+            <h2>Context</h2>
+            <p>
+                The dataset used in this project is the "Real or Fake JobPosting Prediction" dataset made by Shivam Bansal, link <a href="https://www.kaggle.com/datasets/shivamb/real-or-fake-fake-jobposting-prediction">here</a>. This dataset contains information about job postings, which has 18K jobs, and 866 of them are fake. The purpose of this project is to analyze and visualize this dataset to gain insights into the characteristics of real and fake job postings, as well as to build machine learning models for job posting classification.
+            </p>
+            <p>
+                The dataset includes various features such as job descriptions, company profiles, location, salary information, and more. It provides an opportunity to explore the patterns and trends in job postings and develop predictive models to identify fake job listings, which can be valuable for job seekers and recruiters.
+            </p>
+            <p>
+                This data visualization example showcases various visualizations and analysis techniques applied to the dataset to better understand the information it contains and to assist in the development of machine learning models for fake job prediction.
+            </p>
+            <p>
+                Explore the visualizations and analysis to gain insights into the world of job postings and learn how data science and machine learning can help in distinguishing between real and fake job opportunities.
+            </p>
+        </section>
+
+        <section class="process" id="process1">
+            <h2>Data Preprocessing for Machine Learning Classification</h2>
+            
+            <div class="step">
+                <h3>Step 1: Loading the Dataset</h3>
+                <ul>
+                    <li>I started by loading the dataset, which is typically stored in a file (e.g., a CSV file). I used the dataset named "fake_job_postings.csv" from the Kaggle website.</li>
+                </ul>
+            </div>
+        
+            <div class="step">
+                <h3>Step 2: Handling Missing Values</h3>
+                <ul>
+                    <li>Missing data can be problematic for machine learning models. I first check the dataset for missing values in each column.</li>
+                    <li>If a numerical feature (e.g., salary range) has missing values, I fill them with the median value of that feature.</li>
+                    <li>If a categorical feature (e.g., job description) has missing values, I replace them with 'Unknown' to ensure all data is accounted for.</li>
+                </ul>
+            </div>
+        
+            <div class="step">
+                <h3>Step 3: Encoding Categorical Variables</h3>
+                <ul>
+                    <li>Machine learning models require numeric input, so I convert categorical variables (e.g., job location, employment type) into a numerical format using a technique called label-encoding for high cardinality features and one-hot encoding to other categorical columns. This allows the model to understand and work with these categorical features.</li>
+                </ul>
+            </div>
+        
+            <div class="step">
+                <h3>Step 4: Splitting the Dataset</h3>
+                <ul>
+                    <li>I split the dataset into two parts: the "features" and the "target variable." The features contain the information used to make predictions, while the target variable is what I want the model to predict. For example, the target variable is "fraudulent".</li>
+                </ul>
+            </div>
+        
+            <div class="step">
+                <h3>Step 5: Saving the Preprocessed Data</h3>
+                <ul>
+                    <li>Finally, I save the preprocessed data to as a new .csv file, "encoded_job_postings.csv," so that I can easily use it for training and testing machine learning models.</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="figure1">
+            <img src="Images/Figure_1.png" alt="figure1">
+            <p style="font-size: 14px; margin-top: 0;">Figure 1: Graph depicting an imbalance between real and fake jobs.</p>
+        </div>
+
+        <section class="process" id="process2">
+            <h2>Machine Learning using the XGBoost Classifier</h2>
+            
+            <div class="step">
+                <h3>Step 1: Data Preparation</h3>
+                <p>The analysis began by loading a dataset containing information about job postings from a file named 'categorized_job_postings.csv.'</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 2: Data Splitting</h3>
+                <p>The dataset was divided into two parts: one used to teach the computer model, and the other to test the model's predictions. This division helps assess how well the model performs.</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 3: Handling Class Imbalance</h3>
+                <p>Special attention was given to the issue of class imbalance, where there were significantly more "non-fraudulent" job postings than "fraudulent" ones. Techniques were applied to balance the influence of both types during model training.</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 4: Building the Model</h3>
+                <p>A machine learning model called the XGBoost Classifier was created. This model is capable of learning patterns in data and making predictions based on what it learns.</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 5: Model Training</h3>
+                <p>The XGBoost model was trained using the data meant for teaching. During this process, the model learned to recognize patterns that distinguish "fraudulent" from "non-fraudulent" job postings.</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 6: Making Predictions</h3>
+                <p>After being trained, the model was put to use by making predictions on another part of the data. These predictions indicated whether each job posting should be categorized as "fraudulent" or "non-fraudulent."</p>
+            </div>
+
+            <div class="step">
+                <h3>Step 7: Assessing Model Performance</h3>
+                <p>To understand how well the model performed, various measurements were calculated:</p>
+                <ul>
+                    <li>Accuracy Score: This metric gauges the overall correctness of the model's predictions.</li>
+                    <li>Confusion Matrix: This is a table that shows the number of correct and incorrect predictions, offering insights into the model's performance.</li>
+                    <li>Classification Report: Detailed metrics were generated to describe how well the model performed for each category.</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>Step 8: Visualizing Model Performance</h3>
+                <p>For better visualization and understanding, a heatmap representation of the confusion matrix was created. This heatmap visually displayed the model's predictions and errors, aiding in the assessment of how effectively it identified "fraudulent" job postings.</p>
+            </div>
+        </section>
+
+        </section>
+
+        <footer>
+            <p>Created by Michael Avila Salas</p>
+            <p>Portfolio: <a href="https://michaelavilasalas.com">michaelavilasalas.com</a></p>
+        </footer>
+
+        <script src="script.js"></script>
+    </div>
 </body>
 </html>
