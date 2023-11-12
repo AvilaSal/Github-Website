@@ -1,32 +1,34 @@
+// function to smoothly scroll to the section
+    function scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const sectionPosition = section.offsetTop - headerHeight;
 
-// Sample data
-const data = [10, 20, 30, 40, 50];
+            window.scrollTo({
+                top: sectionPosition,
+                behavior: 'smooth',
+            });
+        }
+    }
 
-// Create an SVG element
-const svg = d3.select("#chart-container")
-    .append("svg")
-    .attr("width", 500)
-    .attr("height", 300);
+// add click event listeners to the buttons
+const buttons = document.querySelectorAll('.header-button');
+buttons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        event.preventDefault();
+        const sectionId = event.target.getAttribute('href').substring(1);
+        scrollToSection(sectionId);
+    });
+});
 
-// Create bars for each data point
-svg.selectAll("rect")
-    .data(data)
-    .enter()
-    .append("rect")
-    .attr("x", (d, i) => i * 60)
-    .attr("y", (d) => 300 - d)
-    .attr("width", 50)
-    .attr("height", (d) => d)
-    .attr("fill", "blue");
 
-// Add labels to the bars
-svg.selectAll("text")
-    .data(data)
-    .enter()
-    .append("text")
-    .text((d) => d)
-    .attr("x", (d, i) => i * 60 + 20)
-    .attr("y", (d) => 300 - d - 5)
-    .attr("text-anchor", "middle")
-    .attr("font-size", "14px")
-    .attr("fill", "white");
+// responsive menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const headertext = document.querySelector('.headertext');
+
+menuToggle.addEventListener('click', () => {
+    headertext.classList.toggle('show-menu');
+});
+
+

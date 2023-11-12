@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color: #e1e1e1;
 }
 
 header {
@@ -30,19 +30,26 @@ header p {
     margin: 0;
     text-align: center;
     margin-right: 10px;
+}
+
+.header-button {
     background-color: rgb(255, 255, 255);
-    width: 15%;
+    width: 140px;
     padding-bottom: 5px;
     padding-top: 5px;
     border-radius: 5px;
     color: black;
     cursor: pointer;
     transition: all 0.5s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
-header p:hover {
+.header-button:hover {
     background-color: rgb(255, 80, 80);
 }
+
 
 .headertext {
     grid-area: 2 / 2;
@@ -51,12 +58,17 @@ header p:hover {
     justify-content: center;
 }
 
+.headertext a {
+    text-decoration: none;
+    color: black;
+}
+
 .headerimg {
     grid-area: 2 / 1;
 }
 
 .bigsection {
-    height: 30vh;
+    height: 40vh;
     background: linear-gradient(133deg, #e32222, #e8820c, #ffaaa5, #fffdaa);
     background-size: 800% 800%;
     -webkit-animation: gradientanimation 13s ease infinite;
@@ -69,7 +81,7 @@ header p:hover {
 .bigsection h1 {
     margin-top: 0;
     padding-left: 50px;
-    font-size: 28px;
+    font-size: 38px;
 }
 
 .container {
@@ -135,9 +147,97 @@ header p:hover {
     justify-content: space-between;
 }
 
-#chart-container {
-    width: 80%;
+.resulttext {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.results .resulttext h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px !important;
+    margin-top: 20px;
+}
+
+.resulttext p {
+    margin: 0;
+}
+
+.resulttext h4 {
+    margin-bottom: 10px;
+}
+
+.table {
     margin: 0 auto;
+}
+.classification-table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.classification-table caption {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.classification-table th {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.classification-table td {
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.classification-table .accuracy-row {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.classification-table .avg-row {
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+.summary {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.summary h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 20px !important;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    margin: 0 auto;
+}
+footer p:nth-last-child(1) {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+footer p:nth-child(1) {
+    padding-top: 10px;
+}
+footer p {
+    text-align: center;
 }
 
 @-webkit-keyframes gradientanimation {
@@ -154,4 +254,82 @@ header p:hover {
     0%{background-position:0% 14%}
     50%{background-position:100% 87%}
     100%{background-position:0% 14%}
+}
+
+@media screen and (max-width: 1441px) {
+    header img {
+        width: 15%;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    header img {
+        width: 25% !important;
+    }
+    header p {
+        font-size: 12px;
+    }
+    .header-button {
+        width: 110px !important;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    header img {
+        width: 40% !important;
+    }
+    header p {
+        font-size: 12px;
+    }
+    .header-button {
+        width: 100px !important;
+    }
+}
+
+@media screen and (max-width: 426px) {
+    header img {
+        display: none;
+    }
+    header p {
+        font-size: 10px;
+        margin-right: 5px;
+    }
+    .header-button {
+        width: 70px !important;
+    }
+    .classification-table {
+        overflow-x: auto;
+        display: block;
+    }
+    .classification-table table {
+        width: 100%;
+    }
+    .classification-table table th,
+    .classification-table table td {
+        white-space: nowrap;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    header img {
+        display: none;
+    }
+    header p {
+        font-size: 10px;
+        margin-right: 5px;
+    }
+    .header-button {
+        width: 70px !important;
+    }
+    .classification-table {
+        overflow-x: auto; 
+        display: block;
+    }
+    .classification-table table {
+        width: 100%;
+    }
+    .classification-table table th,
+    .classification-table table td {
+        white-space: nowrap;
+    }
 }
