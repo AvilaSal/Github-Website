@@ -13,6 +13,8 @@ header {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    position: fixed;
+    width: 100%;
 }
 
 header img {
@@ -20,9 +22,26 @@ header img {
     padding-left: 20px;
 }
 
+header img:hover {
+    transform: scale(0.95);
+}
+
 header p {
     margin: 0;
     text-align: center;
+    margin-right: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 15%;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+header p:hover {
+    background-color: rgb(255, 80, 80);
 }
 
 .headertext {
@@ -106,13 +125,14 @@ header p {
     margin-top: 30px;
 }
 
-.figure1 p {
-    margin-bottom: 20px !important;
+.figure1 img {
+    max-width: 50%;
+    height: auto;
 }
 
-.figure1 img {
-    border-radius: 10px;
-    width: 60%;
+.figure1 .image-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 #chart-container {
